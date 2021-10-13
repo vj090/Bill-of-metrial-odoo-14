@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--    This is for the treditional inheritance -->
+    <record id="bom_price_ext_form_view_cust" model='ir.ui.view'>
+        <field name="name">view.bom.ext</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+<!--            <xpath expr="/form/sheet/notebook//field[@name='company_id']" position="before">-->
+            <xpath expr="//form//notebook/page/group/group[2]//field[@name='company_id']" position="before">
+                <field name="bom_cost_price" placeholder="Bill of material"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--    This is for the treditional inheritance -->
+    <record id="bom_line_price_ext_form_view_custom_added" model='ir.ui.view'>
+        <field name="name">view.bom.line.ext.custom</field>
+        <field name="model">mrp.bom</field>
+        <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//sheet//notebook//page[1]//tree//field[@name='product_qty']" position="after">
+                <field name="each_bom_line_cost" placeholder="Bill of m Each"/>
+                <field name="total_amount" placeholder="Bill of m Each"/>
+<!--                <field name="bom_grand_total" placeholder="Gt"/>-->
+<!--                <field name="bom_line_cost" placeholder="Bill of m Each"/>-->
+            </xpath>
+        </field>
+    </record>
+</odoo>

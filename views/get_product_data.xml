@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!-- This is the tree view for the purchase line -->
+        <record id="transport_tree_view" model="ir.ui.view">
+        <field name="name">bom.cost.tree</field>
+        <field name="model">bom.cost</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="bom_cost_test"/>
+                <field name="product_qty"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Form view is start form here-->
+    <record model="ir.ui.view" id="bom_cost_form_view">
+        <field name="name">bom.cost.form</field>
+        <field name="model">bom.cost</field>
+
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="get_product_cost" type="object" string="Test" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="bom_cost_test"/>
+                        <field name="product_qty"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="bom_cost_action" model="ir.actions.act_window">
+        <field name="name">bom_action</field>
+        <field name="res_model">bom.cost</field>
+        <field name="view_mode">tree,form</field>
+
+    </record>
+
+    <!-- Top level menu -->
+    <menuitem id="main_menu_root" name="BOM"/>
+
+    <menuitem id="bom_sub_menu" name="Bom cost" parent="main_menu_root" action="bom_cost_action"/>
+
+</odoo>
